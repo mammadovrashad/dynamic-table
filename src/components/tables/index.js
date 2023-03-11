@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 const Tables = () => {
 
   const datas=useSelector(v=>v.data)
-console.log(datas);
   return (
     <>
     <div>
@@ -16,13 +15,25 @@ console.log(datas);
         <Buttons value={'Photos'}/>
         <Buttons value={'Users'}/>
     </div>
-    <table>
+    <table border={'1px'}>
         <thead>
-            <tr>
-               
-            </tr>
+          <tr>
+            {datas[0] &&
+              Object.entries(datas[0]).map(([key, value]) => <th>{key} </th>)}
+          </tr>
         </thead>
-    </table>
+        <tbody>
+          {datas?.map((item) => {
+            return (
+              <tr key={item.id}>
+                {Object.entries(item).map(([key, value]) => {
+                  return <td key={item.id}>{String(value)} </td>;
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </>
   )
 }
