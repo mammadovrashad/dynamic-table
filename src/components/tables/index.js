@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 
 const Tables = () => {
 
-  const datas=useSelector(v=>v.data);
-
+  const datas=useSelector(v=>v.data)
+console.log(datas);
   return (
     <>
     <div>
@@ -19,7 +19,7 @@ const Tables = () => {
     <table>
         <thead>
             <tr>
-                datas.map(()=>{})
+               
             </tr>
         </thead>
     </table>
